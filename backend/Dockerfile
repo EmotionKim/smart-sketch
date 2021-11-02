@@ -1,12 +1,12 @@
-FROM python:3.6-slim
-LABEL Noah Yoshida "nyoshida@nd.edu"
+FROM python:3.6
+
 RUN apt-get update -y && apt-get install -y gcc libc-dev
 
-COPY . /app
-ENV HOME=/app
 WORKDIR /app
+ENV HOME=/app
 
+COPY requirements.txt .
 RUN pip3 install -r requirements.txt
-EXPOSE 80 
+EXPOSE 8080
 
-ENTRYPOINT ["python3", "server.py"]
+#CMD ["python3", "server.py"]

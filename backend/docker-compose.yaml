@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: smart-sketch
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - .:/app
+    ports:
+      - 8080:8080
+    entrypoint: ["/bin/bash", "-c"]
+    command:
+      - /app/start.sh
