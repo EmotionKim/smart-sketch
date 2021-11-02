@@ -1,5 +1,23 @@
 # SmartSketch
 
+현재 최신 태그: 0.1.1
+
+## 이미지 pull
+
+```shell
+docker pull ghcr.io/jivvon/smart-sketch:[태그]
+```
+
+## 실행
+
+localhost:8080 으로 접속
+
+```shell
+docker run -p 8080:80 ghcr.io/jivvon/smart-sketch:[태그]
+```
+
+---
+
 ## Supercharge your creativity with state of the art image synthesis
 
 ![promo.png](docs/promo.png)
