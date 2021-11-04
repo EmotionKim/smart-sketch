@@ -47,5 +47,7 @@ HackSC/
 env/
 *.png
 
-
-
+backend/.bash_history
+backend/.cache
+backend/.python_history
+.idea
