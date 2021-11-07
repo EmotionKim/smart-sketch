@@ -89,5 +89,5 @@
 .drawing-board-control-size-dropdown li:hover { background: #ccc; }
 .drawing-board-control-size-dropdown span { margin: 0 auto; }
 
-.drawing-board-control-download-button { overflow: hidden; *text-indent: -9999px; background-image: url('./icons/save.png'); background-size: contain; background-position: 50% 50%; background-repeat: no-repeat; }
+.drawing-board-control-download-button { overflow: hidden; *text-indent: -9999px; background-image: url('icons/save.png'); background-size: contain; background-position: 50% 50%; background-repeat: no-repeat; }
 .drawing-board-control-download-button:before { content: ""; display: block; width: 0; height: 100%; }
