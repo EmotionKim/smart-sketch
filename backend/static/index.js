@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
     { color: "#b7d24e", title: "grass" },
     { color: "#3c3b4b", title: "mountain" },
     { color: "#987e6a", title: "road" },
-    { color: "#759edf", title: "sky-other" },
+    { color: "#759edf", title: "sky" },
     { color: "#352613", title: "tree" },
     { color: "#636363", title: "pavement" },
     { color: "#e670b6", title: "flower" },
@@ -46,10 +46,10 @@ jQuery(document).ready(function($) {
     { color: "#7CFC00", title: "airplane" },
     { color: "#D2D2D2", title: "boat" },
     { color: "#D2691E", title: "bridge" },
-    { color: "#8B0000", title: "roof*" },
-    { color: "#DEB887", title: "house*" },
-    { color: "#00CED1", title: "window-other*" },
-    { color: "#B22222", title: "wall-brick*" },
+    { color: "#8B0000", title: "roof" },
+    { color: "#DEB887", title: "house" },
+    { color: "#00CED1", title: "window" },
+    { color: "#B22222", title: "wall-brick" },
     { color: "#8B4513", title: "branch" }
     // { color: "#FF3232", title: "fire" }
   ];
@@ -78,51 +78,36 @@ jQuery(document).ready(function($) {
         $foundactive = true;
       }
 
+      var img_path = 'static/icons/' + $color_list[i].title + '.png'
       self
         .children("ul")
         .append(
-          "<li " +
+          `<li ` +
             $active +
-            ' style="background-color:' +
-            $color_list[i].color +
-            '" title="' +
+            `style="background-color:` + $color_list[i].color + `;` +
+            `background-image:url(` + img_path + `);` +
+            `background-size: 100px;` +
+            `background-repeat: no-repeat;` +
+            `background-position: center;` +
+            `font-weight: bold;` +
+            `width: 100px;` +
+            `height: 100px;` +
+            `line-height: 100px;` +
+            `vertical-align: middle;` +
+            `vertical-align: -webkit-baseline-middle;` +
+            `" title="` +
             $color_list[i].title +
-            '">&nbsp&nbsp' +
+            `">&nbsp&nbsp` +
             $color_list[i].title +
-            "&nbsp&nbsp</li>"
+            `&nbsp&nbsp</li>`
         );
     }
 
-    if (!$foundactive && self.children(".color-picker").val() != "") {
-      // 아이콘 버튼 위치 //
-      // <li></li> 안에 이미지 넣으면 될 듯.
-      self
-        .children("ul")
-        .append(
-          '<li class="active" title="Custom Color ' +
-            self.children(".color-picker").val() +
-            '" style="background-color:' +
-            self.children(".color-picker").val() +
-            '"></li>'
-        );
-
-      if (self.children(".color-picker").hasClass("cp-show")) {
-        self.children("small").remove();
-
-        self.append(
-          "<small>Selected Color: <code>" +
-            self.children(".color-picker").val() +
-            "</code></small>"
-        );
-      }
-    }
 
     // self.children('ul').append('<li class="add_new" title="Add New">+</li>');
   });
 
   $(".color-picker-wrap ul").on("click", "li", function() {
-    console.log("1");
-
     var self = $(this);
 
     // if (!self.hasClass('add_new')) {
@@ -130,7 +115,6 @@ jQuery(document).ready(function($) {
     if (!self.hasClass("active")) {
       self.siblings().removeClass("active");
 
-      // var color = rgb2hex(self.css("backgroundColor"));
       var color = self.css("backgroundColor");
 
       console.log(color);
@@ -198,34 +182,6 @@ jQuery(document).ready(function($) {
     }
   });
 
-  var hexDigits = new Array(
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f"
-  );
-
-  function rgb2hex(rgb) {
-    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-
-    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
-  }
-
-  function hex(x) {
-    return isNaN(x) ? "00" : hexDigits[(x - (x % 16)) / 16] + hexDigits[x % 16];
-  }
 });
 
 // document.getElementById('colorpicker').addEventListener('change', function () {
