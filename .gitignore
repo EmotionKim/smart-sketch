@@ -45,7 +45,8 @@ fonts/
 
 HackSC/
 env/
-*.png
+#*.png
+#!backend/static/icons
 
 backend/.bash_history
 backend/.cache
