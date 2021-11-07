@@ -51,3 +51,8 @@ backend/.bash_history
 backend/.cache
 backend/.python_history
 .idea
+
+# 추가
+backend/start.sh
+backend/img
+backend/dataset
