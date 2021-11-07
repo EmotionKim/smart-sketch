@@ -94,6 +94,8 @@ jQuery(document).ready(function($) {
     }
 
     if (!$foundactive && self.children(".color-picker").val() != "") {
+      // 아이콘 버튼 위치 //
+      // <li></li> 안에 이미지 넣으면 될 듯.
       self
         .children("ul")
         .append(
