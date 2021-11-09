@@ -38,21 +38,31 @@
       }
     </style>
 
-    <nav class="navbar navbar-expand-lg navbar-dark static-top ">
+    <nav class="navbar navbar-expand-lg static-top">
       <div class="container" style="border-bottom: 3px solid #9372ce; text-align: center;">
         <a class="navbar-brand rubik branding" href="#" style="color:#9372ce; font-weight:bold" >Magic Sketch </a>
-        <!-- <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <div class="collapse navbar-collapse" id="navbarResponsive"></div>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item" style="cursor: pointer;">
+              <a
+                class="nav-link rubik"
+                data-toggle="modal"
+                data-target="#GuideModal"
+                style="font-weight:bold"
+                >Guide</a
+              >
+            </li>
+            <li class="nav-item" style="cursor: pointer;">
+              <a
+                class="nav-link rubik"
+                data-toggle="modal"
+                data-target="#ContactModal"
+                style="font-weight:bold"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -70,19 +80,72 @@
             <img class="image" src="#" onerror="this.src='static/icons/result.png'" height="100%" width="100%" id="image" /> <!-- 결과 이미지 위치 -->
           </div>
         </div>
-        
         <div id="sidebar" class="sidebar">
           <div class="colorButtons">
             <!-- <h4 class="rubik">Pen Color</h4> -->
             <input class="color-picker cp-sm" id="colorpicker" />
             <!-- 아이콘 버튼 위치 -->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div> -->
+<!--page content-->
+        <p class="tips rubik"></p>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
+
+    <!-- Modal -->
+    <div class="modal fade" id="GuideModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Guide</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              가이드 내용 1
+            </p>
+            <p>
+              가이드 내용 2
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Close
+            </button>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- Footer -->
-    <footer class="page-footer font-small blue"></footer>
+
+    <div class="modal fade" id="ContactModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Contact</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>GitHub: 레포주소</p>
+            <p>Contact 내용</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
