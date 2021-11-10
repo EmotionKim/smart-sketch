@@ -20,9 +20,6 @@ var myBoard = new DrawingBoard.Board("zbeubeu", {
 
 myBoard.clearWebStorage();
 
-myBoard.resetBackground()
-myBoard.fill()
-
 jQuery(document).ready(function($) {
   $color_list = [
     { color: "#384f83", title: "sea" },
