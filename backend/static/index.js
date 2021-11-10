@@ -11,7 +11,8 @@ var currentBg = "white";
 var myBoard = new DrawingBoard.Board("zbeubeu", {
   controls: [
     { Size: { type: "dropdown" } },
-    { DrawingMode: { filler: false } },
+    // { DrawingMode: { filler: false } },
+    "DrawingMode",
     "Navigation",
     "Download"
   ]
@@ -19,6 +20,7 @@ var myBoard = new DrawingBoard.Board("zbeubeu", {
 
 myBoard.clearWebStorage();
 
+myBoard.resetBackground()
 myBoard.fill()
 
 jQuery(document).ready(function($) {
@@ -203,30 +205,30 @@ function upload(canvas) {
     });
 }
 
-function mousemove(canvas, evt) {
-  if (isMouseDown) {
-    var currentPosition = getMousePos(canvas, evt);
-    // if (currentPosition.x > canvas.width || currentPosition.y > canvas.height) {
-    //   console.log("far off");
-    //   isMouseDown = false;
-    //   return;
-    // }
-    ctx.lineTo(currentPosition.x, currentPosition.y);
-    ctx.stroke();
-    store(currentPosition.x, currentPosition.y, currentSize, currentColor);
-  }
-}
+// function mousemove(canvas, evt) {
+//   if (isMouseDown) {
+//     var currentPosition = getMousePos(canvas, evt);
+//     // if (currentPosition.x > canvas.width || currentPosition.y > canvas.height) {
+//     //   console.log("far off");
+//     //   isMouseDown = false;
+//     //   return;
+//     // }
+//     ctx.lineTo(currentPosition.x, currentPosition.y);
+//     ctx.stroke();
+//     store(currentPosition.x, currentPosition.y, currentSize, currentColor);
+//   }
+// }
 
 // STORE DATA
 
-function store(x, y, s, c) {
-  var line = {
-    x: x,
-    y: y,
-    size: s,
-    color: c
-  };
-  linesArray.push(line);
-}
+// function store(x, y, s, c) {
+//   var line = {
+//     x: x,
+//     y: y,
+//     size: s,
+//     color: c
+//   };
+//   linesArray.push(line);
+// }
 
 console.log(myBoard.color);
