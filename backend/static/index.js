@@ -263,7 +263,7 @@ function upload(canvas) {
   var dataURL = myBoard.getImg();
   console.log(dataURL);
   let img = document.getElementById("image");
-  img.src = "/static/icons/wait.gif"; // TODO fix this to use a better gif
+  img.src = "/static/icons/loading.gif"; // TODO fix this to use a better gif
 
   fetch("/upload", {
     method: "POST",
