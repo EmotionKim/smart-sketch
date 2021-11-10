@@ -19,11 +19,7 @@ var myBoard = new DrawingBoard.Board("zbeubeu", {
 
 myBoard.clearWebStorage();
 
-// INITIAL LAUNCH
-
-// createCanvas();
-
-// BUTTON EVENT HANDLERS
+myBoard.fill()
 
 jQuery(document).ready(function($) {
   $color_list = [
@@ -129,9 +125,6 @@ jQuery(document).ready(function($) {
 
       self.addClass("active");
     }
-    // } else {
-    //   self.parents('.color-picker-wrap').children("input[type='color']").trigger('click');
-    // }
   });
 
   $(".color-picker-wrap input[type='color']").on("change", function() {
@@ -142,8 +135,6 @@ jQuery(document).ready(function($) {
       .children("ul")
       .children("li")
       .removeClass("active");
-
-    // self.parents('.color-picker-wrap').children('ul').children('li.add_new').remove();
 
     self
       .parents(".color-picker-wrap")
@@ -160,8 +151,6 @@ jQuery(document).ready(function($) {
       .parents(".color-picker-wrap")
       .children(".color-picker")
       .val(self.val());
-
-    // self.parents('.color-picker-wrap').children('ul').append('<li class="add_new" title="Add New">+</li>');
 
     if (
       self
@@ -184,20 +173,6 @@ jQuery(document).ready(function($) {
 
 });
 
-// document.getElementById('colorpicker').addEventListener('change', function () {
-//   console.log("hihihi");
-//   currentColor = this.value;
-// });
-// document.getElementById('bgcolorpicker').addEventListener('change', function () {
-//   ctx.fillStyle = this.value;
-//   ctx.fillRect(0, 0, canvas.width, canvas.height);
-//   redraw();
-//   currentBg = ctx.fillStyle;
-// });
-// document.getElementById("controlSize").addEventListener("change", function() {
-//   currentSize = this.value;
-//   document.getElementById("showSize").innerHTML = this.value;
-// });
 document.getElementById("uploadimage").addEventListener(
   "click",
   function() {
@@ -205,57 +180,6 @@ document.getElementById("uploadimage").addEventListener(
   },
   false
 );
-// document.getElementById("eraser").addEventListener("click", eraser);
-// document.getElementById("clear").addEventListener("click", createCanvas);
-
-// REDRAW
-
-function redraw() {
-  for (var i = 1; i < linesArray.length; i++) {
-    ctx.beginPath();
-    ctx.moveTo(linesArray[i - 1].x, linesArray[i - 1].y);
-    ctx.lineWidth = linesArray[i].size;
-    ctx.lineCap = "round";
-    ctx.strokeStyle = linesArray[i].color;
-    ctx.lineTo(linesArray[i].x, linesArray[i].y);
-    ctx.stroke();
-  }
-}
-
-// DRAWING EVENT HANDLERS
-
-// canvas.addEventListener("mousedown", function() {
-//   mousedown(canvas, event);
-// });
-// canvas.addEventListener("mousemove", function() {
-//   mousemove(canvas, event);
-// });
-// canvas.addEventListener("mouseup", mouseup);
-
-// CREATE CANVAS
-
-// function createCanvas() {
-//   canvas.id = "canvas";
-//   let x = document.getElementById("image").width;
-//   // TODO figure out how to get this to be 100% of parent...
-//   canvas.width = x;
-//   canvas.height = x;
-//   // canvas.style.zIndex = 8;
-//   canvas.style.position = "absolute";
-//   canvas.style.border = "1px solid";
-//   ctx.fillStyle = currentBg;
-//   ctx.fillRect(0, 0, canvas.width, canvas.height);
-//   body.appendChild(canvas);
-// }
-
-// DOWNLOAD CANVAS
-
-// function downloadCanvas(link, canvas, filename) {
-//   link.href = document.getElementById(canvas).toDataURL();
-//   link.download = filename;
-// }
-
-// UPLOAD CANVAS
 
 function upload(canvas) {
   // TODO change
@@ -278,36 +202,6 @@ function upload(canvas) {
       console.log(img.src);
     });
 }
-
-// function eraser() {
-//   currentSize = 50;
-//   currentColor = ctx.fillStyle;
-// }
-
-// GET MOUSE POSITION
-
-// function getMousePos(canvas, evt) {
-//   var rect = canvas.getBoundingClientRect();
-//   return {
-//     x: evt.clientX - rect.left,
-//     y: evt.clientY - rect.top
-//   };
-// }
-
-// ON MOUSE DOWN
-
-function mousedown(canvas, evt) {
-  var mousePos = getMousePos(canvas, evt);
-  isMouseDown = true;
-  var currentPosition = getMousePos(canvas, evt);
-  ctx.moveTo(currentPosition.x, currentPosition.y);
-  ctx.beginPath();
-  ctx.lineWidth = currentSize;
-  ctx.lineCap = "round";
-  ctx.strokeStyle = currentColor;
-}
-
-// ON MOUSE MOVE
 
 function mousemove(canvas, evt) {
   if (isMouseDown) {
@@ -333,23 +227,6 @@ function store(x, y, s, c) {
     color: c
   };
   linesArray.push(line);
-}
-
-// ON MOUSE UP
-
-function mouseup() {
-  isMouseDown = false;
-  store();
-}
-
-function sky() {
-  currentColor = "rgba(117,158,223)";
-}
-function sand() {
-  currentColor = "rgba(44,30,22)";
-}
-function sea() {
-  currentColor = "rgba(56,79,131)";
 }
 
 console.log(myBoard.color);
